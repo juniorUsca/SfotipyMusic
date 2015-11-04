@@ -32,6 +32,16 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+
+        <receiver
+            android:name=".broadcastReceiver.MusicReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.debugcomputercompany.CUSTOM_INTENT">
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -91,6 +91,13 @@ public class MusicService extends Service implements MediaPlayer.OnPreparedListe
         Uri trackUri = ContentUris.withAppendedId(android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, currSong);
         try {
             player.setDataSource(getApplicationContext(), trackUri);
+
+            // broadcast
+            Intent intent = new Intent();
+            intent.setAction("com.debugcomputercompany.CUSTOM_INTENT");
+            intent.putExtra("song_name", playSong.getSongName());
+            sendBroadcast(intent);
+
         }
         catch (Exception e){
             Log.e("MUSIC SERVICE", "Error setting data source", e);
