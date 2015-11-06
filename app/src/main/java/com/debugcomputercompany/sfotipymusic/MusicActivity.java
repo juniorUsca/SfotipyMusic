@@ -43,6 +43,10 @@ public class MusicActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //orientacion
+        getLastNonConfigurationInstance();
+
         setContentView(R.layout.activity_music);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -68,8 +72,13 @@ public class MusicActivity extends AppCompatActivity {
                 songFragment.stopMusic();
             }
         });
-
     }
+
+    @Override
+    public Object onRetainCustomNonConfigurationInstance() {
+        return super.onRetainCustomNonConfigurationInstance();
+    }
+
 
 
     @Override
